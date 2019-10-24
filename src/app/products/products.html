@@ -1,0 +1,56 @@
+<br>
+<div class="row">
+    <div *ngFor="let product of products" class="col-md-12">
+        <label>Part Number:&nbsp;{{product.id}} <span style="margin-left: 40px">{{product.name}}</span></label>
+        <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search"  placeholder="Product Name/Id" [(ngModel)]="filter" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.26); font-size: 10px;">
+                    </div> 
+                </div>
+                <a routerLink="/orders" style="font-size: 11px; margin-left: 50px"> &nbsp;&nbsp;New Order</a>
+                <!--&nbsp;<button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm">Create Product</button>-->
+            </form>
+            
+            <table class="table table-bordered table-hover table-sm" style="font-size: 12px">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products | filter:filter | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+                    <td><a [routerLink]="['/products', product.id]">{{product.id}}</a></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price | currency:'USD':'symbol'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <small><pagination-controls (pageChange)="p = $event"></pagination-controls></small>
+    </div>
+    <div class="col-sm-6">
+            <img src="../../assets/sky-tec-starter-200.png" alt="Logo" style="margin-left:100px; width:200px">
+    </div>
+    <div class="col-sm-6">
+            <div class="form-group" style="margin-left: 15px;">
+                    <label for="password">Terms and conditions:</label>
+                    <div style="width:360px;height:80px;overflow:scroll;padding-left:20px;background-color:rgb(238, 236, 217);color:#714D03;border:4px double #DEBB07;font-size: 10px">
+                        <p>Introduction:<br>
+                            These Website Standard Terms And Conditions (these "Terms" or these "Website Standard Terms") contained herein on this webpage, shall govern your use of this website, 
+                            including all pages within this website (collectively referred to herein below as this "Website"). These Terms apply in full force and effect to your use of this Website
+                            and by using this Website, you expressly accept all terms and conditions contained herein in full. You must not use this Website, if you have any objection to any of these
+                            Website Standard Terms And Conditions. This website is not for use by any minors (defined as those who are not at least 18 years of age), and you must not use this Website
+                            if you are a minor. 
+                        </p>
+                    </div>
+                    <label class="form-check-label" style="margin-top: 20px;">
+                        <span style="margin-left:40px"><input type="checkbox" class="form-check-input" value=""><small>Accept</small></span><br>    
+                    </label>
+                    <span style="margin-left: 20px"><button type="button"><small>Submit</small></button></span>
+                </div>
+    </div>
+</div>
