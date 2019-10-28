@@ -1,7 +1,12 @@
 <hr>
-{{title}}
+<label>{{title}}</label>
 <br>
-<label><em>Dashboard</em></label>
+
+<p style="font-size: 10px">This is a secure api end point and can be accessed by all authenticated users. <br>Current User:</p>
+    <ul>
+      <li>American Airlines</li>
+      <!--<li>{{username}}</li>-->
+    </ul>
 <div class="card-deck">
     <div class="card bg-transparent">
       <div class="card-body text-center">
@@ -33,9 +38,7 @@
 </div>
 <br>
 
-<p style="font-size: 10px">This page can be accessed by all authenticated users.
-  Current user from secure api end point:</p>
-<ul><li>American Airlines</li></ul>
+ 
 
   <!--<div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
   <ul *ngIf="userFromApi">

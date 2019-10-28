@@ -1,6 +1,8 @@
  import { Discount } from '../customerDetail/discount.interface';
+ import { Guid } from 'guid-typescript';
 
 export interface Customer {
+    id: Guid;
     CustomerId: number;
     FirstName: string;
     LastName: string;

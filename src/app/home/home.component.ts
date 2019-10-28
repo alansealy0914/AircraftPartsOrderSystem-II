@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent {
     title: string;
     constructor(private toastr: ToastrService) {
-        this.title = 'International Ordering System:';
+        this.title = 'Portal Dashboard';
         // this.toastr.success('Successful login.');
     }
 }
